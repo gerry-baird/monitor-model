@@ -80,5 +80,34 @@ public class Helper {
 		return mean;
 	}
 	
+	public static double absoluteDiff(double a, double b) {
+		double result = a - b;
+		
+		return Math.abs(result);
+	}
 	
+	public static void addException(int score, String ruleType, String description, MonitorExceptionList mel) {
+		
+		MonitorException me = new MonitorException();
+		me.setScore(score);
+		me.setRuleType(ruleType);
+		me.setDescription(description);
+		
+		mel.addMonitorException(me);
+	}
+	
+	public static boolean isPercentageGreater(double a, double b, double percent) {
+		boolean result = false;
+		
+		double limit = b * (1 + percent /100);
+		if(a > limit) {
+			result = true;
+		}
+		
+		return result;
+	}
 }
+	
+	
+	
+	
